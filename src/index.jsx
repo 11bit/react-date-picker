@@ -207,8 +207,37 @@ var DatePicker = React.createClass({
         viewProps.highlightRangeOnMouseMove = this.props.highlightRangeOnMouseMove
         viewProps.range = props.range
 
+        var divProps = assign({}, this.props)
+
+        delete divProps.locale
+        delete divProps.weekNumbers
+        delete divProps.defaultDate
+        delete divProps.xweekDayNames
+        delete divProps.weekDayNames
+        delete divProps.weekStartDay
+        delete divProps.dayFormat
+        delete divProps.monthFormat
+        delete divProps.yearFormat
+        delete divProps.navPrev
+        delete divProps.navNext
+        delete divProps.view
+        delete divProps.minDate
+        delete divProps.maxDate
+        delete divProps.dateFormat
+        delete divProps.onRenderDay
+        delete divProps.renderDay
+        delete divProps.alwaysShowPrevWeek
+        delete divProps.weekNumberName
+        delete divProps.isDatePicker
+        delete divProps.navOnDateClick
+        delete divProps.highlightRangeOnMouseMove
+        delete divProps.defaultStyle
+        delete divProps.onRangeChange
+        delete divProps.xweekStartDay
+        delete divProps.highlightWeekends
+
         return (
-            <div {...this.props} className={className} style={props.style} >
+            <div {...divProps} className={className} style={props.style} >
                 {this.renderHeader(view, props)}
 
                 <div className="dp-body" style={{flex: 1}}>

@@ -161,6 +161,10 @@ var MonthView = React.createClass({
     }
 
     if (result === undefined){
+      delete weekNumberProps.week
+      delete weekNumberProps.days
+      delete weekNumberProps.date
+
       result = <div {...weekNumberProps} />
     }
 
@@ -298,11 +302,16 @@ var MonthView = React.createClass({
     }
 
     var defaultRenderFunction = React.DOM.div
-    var renderFunction = props.renderDay || defaultRenderFunction
-
-    var result = renderFunction(renderDayProps)
+    var result
+    if (props.renderDay) {
+       result = renderFunction(renderDayProps)
+    }
 
     if (result === undefined){
+      delete renderDayProps.text
+      delete renderDayProps.date
+      delete renderDayProps.moment
+
       result = defaultRenderFunction(renderDayProps)
     }
 
